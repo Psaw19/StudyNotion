@@ -1,3 +1,0 @@
-what is cron job
-what is checksum
-add status approvals to the courses

@@ -3,11 +3,13 @@ import CTAbutton from './CTAbutton'
 import { FaArrowRight } from "react-icons/fa"
 import { TypeAnimation } from 'react-type-animation'
 
-function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, codeblock, color }) {
+function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, bg_gradient_color, textcolor }) {
 
     return (
-        <div className={`flex w-full h-full gap-[98px] ${position}`}>
-            <div className='flex flex-col w-1/2 gap-3'>
+        <div className={`flex w-full h-full gap-[98px] ${position} justify-center px-[120px] py-[90px] items-center`}>
+
+            {/* Section 1 */}
+            <div className='flex flex-col w-[486px] gap-3'>
                 {heading}
                 <p className='text-base text-richblack-300'>
                     {subheading}
@@ -24,15 +26,22 @@ function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, codeblock
                     </CTAbutton>
                 </div>
             </div>
-            <div className='relative w-1/2 p-8 font-mono text-sm'>
+
+            {/* Section 2 */}
+
+            <div className='relative w-[45%] p-8 font-mono text-sm'>
 
                 <div
-                    className={`absolute -top-8 -left-1 w-3/4 h-3/4 -rotate-45 skew-x-12 skew-y-12 rounded-full bg-gradient-to-b ${color} blur-3xl opacity-30`}
+                    className={`
+                    absolute -top-5
+                    w-[270px] h-[270px] 
+                    -rotate-45 skew-x-12 skew-y-12 rounded-full 
+                    bg-gradient-to-b ${bg_gradient_color} blur-2xl opacity-20`}
                 >
                 </div>
 
-                <div className='flex bg-richblack-800'>
-                    <div className='z-10 p-2 text-richblack-400'>
+                <div className='flex p-2 border-2 bg-richblack-800 border-richblack-700'>
+                    <div className='px-1 text-richblack-400'>
                         <p>1</p>
                         <p>2</p>
                         <p>3</p>
@@ -46,13 +55,13 @@ function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, codeblock
                         <p>11</p>
 
                     </div>
-                    <div className='z-10 py-2 pr-2 font-bold'>
+                    <div className='pl-2 font-bold'>
                         <TypeAnimation
-                            sequence={[codeblock, 2000, ""]}
+                            sequence={['<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n<link rel="stylesheet" href="styles.css">\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav><a href="one/">One</a>\n<a href="two/">Two</a>\n<ahref="three/">Three</a>\n</nav>', 2000, ""]}
                             repeat={Infinity}
                             omitDeletionAnimation={true}
                             style={{ display: "block", whiteSpace: "pre-line" }}
-                            className='text-brown-100'
+                            className={textcolor}
                         />
                     </div>
                 </div>

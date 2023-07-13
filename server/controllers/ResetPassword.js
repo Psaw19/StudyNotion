@@ -12,7 +12,7 @@ exports.resetPasswordToken = async (req, res) => {
         //check user from email
         const user = User.findOne({ email: email });
         if (!user) {
-            return res.json({
+            return res.status(401).json({
                 success: false,
                 message: "Email not registered",
             })
@@ -44,8 +44,6 @@ exports.resetPasswordToken = async (req, res) => {
             message: "Email sent Successfully"
         })
 
-
-
     } catch (error) {
 
         return res.status(500).json({
@@ -53,9 +51,7 @@ exports.resetPasswordToken = async (req, res) => {
             message: "Error while sending mail to reset password"
         })
     }
-
 }
-
 
 //resetPassword
 exports.resetPassword = async (req, res) => {
@@ -65,7 +61,7 @@ exports.resetPassword = async (req, res) => {
         const { password, confirmPassword, token } = req.body;
         //validate user
         if (password !== confirmPassword) {
-            return res.json({
+            return res.status(400).json({
                 success: false,
                 message: "Password not matcing",
             })
@@ -74,14 +70,14 @@ exports.resetPassword = async (req, res) => {
         const userDetails = await User.findOne({ token: token });
         //if no entry - invalid token
         if (!userDetails) {
-            return res.json({
+            return res.status(400).json({
                 success: false,
-                message: "invalid token",
+                message: "Invalid token",
             })
         }
         //check expiration time
         if (userDetails.resetPasswordexpires < Date.now()) {
-            return res.json({
+            return res.status(400).json({
                 success: false,
                 message: "token expired",
             })
@@ -96,12 +92,13 @@ exports.resetPassword = async (req, res) => {
         )
 
         //return response
-        return res.json({
+        return res.status(200).json({
             success: true,
+            email: userDetails.email,
             message: "Password reset successfully",
         })
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             success: false,
             message: "Something went wrong while resetting password",
         })

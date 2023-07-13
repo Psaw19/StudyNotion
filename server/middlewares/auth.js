@@ -4,7 +4,7 @@ require("dotenv").config();
 //auth
 exports.auth = (req, res, next) => {
     try {
-
+        console.log('INSIDE AUTH BACKEND')
         //extract token
         const token = req.cookies.token
             || req.body.token
@@ -21,7 +21,7 @@ exports.auth = (req, res, next) => {
         //verify token
         try {
             const decode = jwt.verify(token, process.env.JWT_SECRET);
-            console.log(decode);
+            console.log('JWT =>', decode);
             req.user = decode;
 
         } catch (error) {
@@ -44,14 +44,12 @@ exports.auth = (req, res, next) => {
 //isStudent
 exports.isStudent = async (req, res, next) => {
     try {
-
         if (req.user.accountType !== "Student") {
             return res.status(401).json({
                 success: false,
                 message: "Protected routes for student"
             })
         }
-
         next();
 
     } catch (error) {
@@ -93,7 +91,6 @@ exports.isAdmin = async (req, res, next) => {
                 message: "Protected routes for Admin"
             })
         }
-
         next();
 
     } catch (error) {

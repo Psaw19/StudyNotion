@@ -20,8 +20,8 @@ exports.sendOTP = async (req, res) => {
 
         // If user found with provided email
         if (checkUserPresent) {
-            // Return 401 Unauthorized status code with error message
-            return res.status(401).json({
+            // Return 403 forbidden status code with error message
+            return res.status(403).json({
                 success: false,
                 message: `User is Already Registered`,
             });
@@ -35,7 +35,7 @@ exports.sendOTP = async (req, res) => {
         });
 
         //check whether the generated otp already exists in db or not
-        const result = await OTP.findOne({ otp: otp });
+        let result = await OTP.findOne({ otp: otp });
         // console.log("Result is Generate OTP Func");
         console.log("OTP", otp);
         console.log("Result", result);
@@ -46,6 +46,7 @@ exports.sendOTP = async (req, res) => {
                 lowerCaseAlphabets: false,
                 specialChars: false,
             });
+            result = await OTP.findOne({ otp: otp });
         }
 
         const otpPayload = { email, otp };
@@ -57,98 +58,36 @@ exports.sendOTP = async (req, res) => {
             message: `OTP Sent Successfully`,
             otp,
         });
+
     } catch (error) {
         console.log(error.message);
         return res.status(500).json({ success: false, error: error.message });
     }
-
-    // try {
-
-    //     //fetch email from request body
-    //     const { email } = req.body;
-
-    //     //check whether user exits
-    //     const checkUserPresent = await User.findOne({ email });
-    //     console.log(checkUserPresent)
-    //     if (checkUserPresent) {
-    //         return res.status(401).json({
-    //             success: false,
-    //             message: "User already exits"
-    //         })
-    //     }
-
-    //     //generate otp
-
-    //     var otp = otpgenerator.generate(6, {
-    //         upperCaseAlphabets: false,
-    //         lowerCaseAlphabets: false,
-    //         specialChars: false,
-    //     })
-
-    //     console.log("OTP ==>", otp)
-
-    //     let result = await OTP.findOne({ otp: otp });
-
-    //     while (result) {
-    //         otp = otpgenerator.generate(6, {
-    //             upperCaseAlphabets: false,
-    //             lowerCaseAlphabets: false,
-    //             specialChars: false,
-    //         })
-    //         result = await OTP.findOne({ otp: otp });
-    //     }
-
-    //     // do {
-    //     //     var otp = otpgenerator.generate(6, {
-    //     //         upperCaseAlphabets: false,
-    //     //         lowerCaseAlphabets: false,
-    //     //         specialChars: false,
-    //     //     })
-
-    //     //     var result = await OTP.findOne({ otp: otp });
-
-    //     // } while (result);
-
-    //     //payload to add to otp body
-    //     const otpPayload = { email, otp };
-
-    //     //add otp to db
-    //     const otpBody = await OTP.create(otpPayload);
-    //     console.log("OTP body-->", otpBody);
-
-    //     return res.status(200).json({
-    //         success: true,
-    //         message: "OTP generated Successfully",
-    //         otp,
-    //     })
-
-    // } catch (error) {
-    //     console.log(error);
-    //     return res.status(500).json({
-    //         success: false,
-    //         message: error.message,
-    //     })
-    // }
 }
 
 //signUp
 exports.signup = async (req, res) => {
     try {
-
         const {
             firstName,
             lastName,
             email,
             password,
             confirmPassword,
-            contactNumber,
             accountType,
             otp
         } = req.body;
 
+        // console.log('signup api backend ', req.body)
         //check if all the essential details are present
-        if (!firstName || !lastName || !email || !password || !confirmPassword || !otp) {
-            return res.status(403).json({
+        if (!otp) {
+            return res.status(400).json({
+                success: false,
+                message: "Please enter OTP"
+            })
+        }
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !accountType) {
+            return res.status(400).json({
                 success: false,
                 message: "All fields are required"
             })
@@ -165,7 +104,7 @@ exports.signup = async (req, res) => {
         //check user already exits or not
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({
+            return res.status(403).json({
                 success: false,
                 message: "User already exists"
             })
@@ -176,7 +115,7 @@ exports.signup = async (req, res) => {
 
         //validate if we got otp from db 
         if (recentOtp.length === 0) {
-            return res.status(400).json({
+            return res.status(401).json({
                 success: false,
                 message: "OTP not found"
             })
@@ -204,11 +143,10 @@ exports.signup = async (req, res) => {
             firstName,
             lastName,
             email,
-            contactNumber,
             password: hashedPassword,
             accountType,
             additionalDetails: profileDetails._id,
-            image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`
+            image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName}%20${lastName}`
         });
 
         return res.status(200).json({
@@ -229,7 +167,7 @@ exports.signup = async (req, res) => {
 //login
 exports.login = async (req, res) => {
     try {
-
+        console.log('------------callin backend--------------')
         //get data from request body
         const { email, password } = req.body;
 
@@ -241,7 +179,7 @@ exports.login = async (req, res) => {
             })
         }
         //check if user exists
-        const user = await User.findOne({ email }).populate("additionalDetails");
+        const user = await User.findOne({ email });
         if (!user) {
             return res.status(401).json({
                 success: false,
@@ -276,7 +214,7 @@ exports.login = async (req, res) => {
                 message: "Logged in successfully"
             })
         } else {
-            return res.status(401).json({
+            return res.status(403).json({
                 success: false,
                 message: "Incorrect Password"
             })
@@ -294,7 +232,6 @@ exports.login = async (req, res) => {
 //changePassword
 exports.changePassword = async (req, res) => {
     try {
-
         //fetch data from request body
         const { oldPassword, newPassword, confirmNewPassword } = req.body;
 
