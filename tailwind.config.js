@@ -1,16 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-// const plugin = require('tailwindcss/plugin')
-
-// // Rotate X utilities
-// const rotateX = plugin(({ addUtilities }) => {
-//   addUtilities({
-//     '.rotate-x-45': {
-//       transform: 'rotateX(45deg)',
-//     },
-//   })
-// })
-
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -143,7 +132,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-  ],
 };
