@@ -2,6 +2,8 @@ const { contactUsEmail } = require("../mail/templates/contactFormRes");
 const mailSender = require("../utils/mailSender")
 
 exports.ContactUsController = async (req, res) => {
+
+    console.log('---------------INSIDE CONTACT US CONTROLLER-------------------')
     try {
 
         const { firstName, lastName, email, phoneNumber, message, countryCode } = req.body

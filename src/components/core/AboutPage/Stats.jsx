@@ -23,17 +23,19 @@ const Stats = () => {
 
     return (
         <div className='bg-richblack-800'>
-            <div className='max-w-[1440px] mx-auto flex px-[120px] py-16 justify-evenly'>
+            <div className='grid grid-cols-4 layout'>
                 {
                     data.map((stat, index) => (
+
                         <div key={index} className='flex flex-col items-center justify-center gap-3'>
-                            <p className='text-3xl font-bold text-richblack-5'>
+                            <p className='text-2xl font-bold sm:text-3xl text-richblack-5'>
                                 {stat.stats}
                             </p>
-                            <p className='text-base font-semibold text-richblack-500'>
+                            <p className='text-sm font-semibold text-center sm:text-base text-richblack-500'>
                                 {stat.title}
                             </p>
                         </div>
+
                     ))
                 }
             </div>

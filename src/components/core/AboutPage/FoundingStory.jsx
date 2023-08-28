@@ -4,8 +4,8 @@ import Image from '../../../assets/Images/FoundingStory.png'
 const FoundingStory = () => {
     return (
         <div>
-            <div className='max-w-[1440px] mx-auto flex gap-32 px-[120px] py-16'>
-                <div className='flex flex-col w-1/2 gap-6 pl-8'>
+            <div className='flex flex-col gap-10 lg:flex-row lg:gap-16 layout'>
+                <div className='flex flex-col gap-6 lg:w-1/2'>
                     <h1 className='text-4xl font-semibold highlight gradient4'>
                         Our Founding Story
                     </h1>
@@ -18,7 +18,7 @@ const FoundingStory = () => {
                     </div>
 
                 </div>
-                <div className='w-1/2 p-8 pr-16'>
+                <div className='flex items-center justify-center'>
                     <img src={Image} alt="FoundingStory" />
                 </div>
 

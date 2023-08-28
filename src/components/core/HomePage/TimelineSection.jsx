@@ -31,20 +31,20 @@ function TimelineSection() {
     ]
 
     return (
-        <div className='flex justify-between'>
+        <div className='flex flex-col gap-10 lg:flex-row'>
 
-            <div className='relative flex flex-col gap-8 my-auto'>
-
-                <div className='border-l w-[1px] border-dashed h-10 border-richblack-100 absolute left-[38px] top-[80px]'></div>
-                <div className='border-l w-[1px] border-dashed h-10 border-richblack-100 absolute left-[38px] top-[195px]'></div>
-                <div className='border-l w-[1px] border-dashed h-10 border-richblack-100 absolute left-[38px] top-[310px]'></div>
+            <div className='flex flex-col gap-8 mx-auto'>
 
                 {
                     data.map((val, index) => {
                         return (
-                            <div key={index} className='flex items-center gap-6 px-3 py-4'>
-                                <div className='bg-white h-[52px] w-[52px] rounded-full flex justify-center items-center p-1'>
+                            <div key={index} className='flex items-center py-4 gap-6 xl:px-3 w-full max-w-[375px]'>
+                                <div className='bg-white h-[52px] w-[52px] rounded-full flex justify-center items-center p-1 relative'>
                                     <img src={val.logo} alt="logo" />
+                                    {
+                                        index !== 3 &&
+                                        <div className='border-l w-[1px] border-dashed h-10 border-richblack-100 absolute -bottom-[100%]' />
+                                    }
                                 </div>
                                 <div>
                                     <p className='text-lg font-semibold'>{val.heading}</p>
@@ -57,16 +57,15 @@ function TimelineSection() {
 
             </div>
 
-            <div className='relative'>
+            <div className='relative mx-auto'>
 
-                <div className=''>
-                    <img src={TimelineImage} alt="TimelineImage" className='h-[545px]' />
+                <div >
+                    <img src={TimelineImage} alt="TimelineImage" className='w-full' />
                 </div>
 
-                {/* <div className='w-[700px] h-[700px] bg-gradient-to-r from-[#9CECFB] via-[#65C7F7] to-[#0052D4] absolute top-0 left-0 -rotate-45 skew-x-12 skew-y-12 rounded-full blur-3xl'></div> */}
+                <div className='absolute top-0 left-0 z-50 bg-caribbeangreen-700'>
 
-                <div className='absolute z-50 flex p-10 -bottom-14 left-[118px] bg-caribbeangreen-700'>
-                    <div className='flex flex-wrap gap-6'>
+                    <div className='grid grid-cols-2 p-3 sm:p-5'>
                         <p className='flex items-center justify-center text-3xl font-bold text-white'>
                             10
                         </p>
@@ -78,9 +77,9 @@ function TimelineSection() {
                         </div>
                     </div>
 
-                    <div className='w-[1px] border border-caribbeangreen-500 mx-[52px]'></div>
+                    {/* <div className='w-[1px] border border-caribbeangreen-500 mx-[52px]'></div> */}
 
-                    <div className='flex flex-wrap gap-6'>
+                    <div className='grid grid-cols-2 p-3 sm:p-5'>
                         <p className='flex items-center justify-center text-3xl font-bold text-white' >
                             250
                         </p>

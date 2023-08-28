@@ -7,7 +7,7 @@ function CourseCard({ data, currentCard, setCurrentCard }) {
     return (
         <div
             onClick={() => setCurrentCard(data.heading)}
-            className={`font-inter cursor-pointer ${currentCard === data.heading ? 'bg-pure-greys-5 shadow-[10px_10px_0_0] shadow-brown-50' : 'bg-richblack-800'}`}>
+            className={`w-11/12 max-w-xs font-inter cursor-pointer ${currentCard === data.heading ? 'bg-pure-greys-5 shadow-[10px_10px_0_0] shadow-brown-50' : 'bg-richblack-800'}`}>
 
             <div className='border-b border-dashed px-6 pt-8 pb-[52px] flex flex-col gap-3 border-richblack-400'>
 

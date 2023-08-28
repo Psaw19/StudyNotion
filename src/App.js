@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './assets/global.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -21,7 +21,7 @@ import UpdatePassword from './pages/UpdatePassword'
 
 const App = () => {
   return (
-    <div className='flex flex-col h-screen bg-richblack-900'>
+    <div className='flex flex-col w-screen h-screen overflow-x-hidden bg-richblack-900'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

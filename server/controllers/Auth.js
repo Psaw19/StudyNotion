@@ -10,6 +10,7 @@ require("dotenv").config();
 
 //sendOTP
 exports.sendOTP = async (req, res) => {
+    console.log('---------------INSIDE SEND OTP CONTROLLER-------------------')
     try {
         const { email } = req.body;
 
@@ -67,6 +68,7 @@ exports.sendOTP = async (req, res) => {
 
 //signUp
 exports.signup = async (req, res) => {
+    console.log('---------------INSIDE SIGN UP CONTROLLER-------------------')
     try {
         const {
             firstName,
@@ -166,8 +168,8 @@ exports.signup = async (req, res) => {
 
 //login
 exports.login = async (req, res) => {
+    console.log('---------------INSIDE LOGIN CONTROLLER-------------------')
     try {
-        console.log('------------callin backend--------------')
         //get data from request body
         const { email, password } = req.body;
 
@@ -231,6 +233,7 @@ exports.login = async (req, res) => {
 
 //changePassword
 exports.changePassword = async (req, res) => {
+    console.log('---------------INSIDE CHANGE PASSWORD CONTROLLER-------------------')
     try {
         //fetch data from request body
         const { oldPassword, newPassword, confirmNewPassword } = req.body;

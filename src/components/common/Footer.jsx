@@ -98,13 +98,13 @@ const Footer = () => {
     return (
         <div className='w-full bg-richblack-800 font-inter'>
 
-            <div className='flex w-full py-10 mx-auto border-b max-w-maxContent border-richblack-600'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 layout border-richblack-600'>
 
-                <div className='flex justify-between w-1/2 pr-14'>
+                <div className='grid grid-cols-2 md:grid-cols-3'>
 
-                    <div className='flex flex-col gap-8'>
+                    <div className='flex flex-col gap-6'>
 
-                        <img src={Logo} alt="Logo" />
+                        <img src={Logo} alt="Logo" className='w-40' />
 
                         <div className='space-y-3'>
                             <h1 className='font-semibold text-richblack-100'>Company</h1>
@@ -128,7 +128,7 @@ const Footer = () => {
 
                     </div>
 
-                    <div className='space-y-9'>
+                    <div className='space-y-5 mt-14'>
                         <div className='space-y-3'>
                             <h1 className='font-semibold text-richblack-100'>Resources</h1>
                             <div className='flex flex-col gap-2 text-sm text-richblack-400'>
@@ -156,8 +156,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-
-                    <div className='space-y-9'>
+                    <div className='grid grid-cols-2 col-span-2 mt-5 md:col-span-1 md:grid-cols-1 md:mt-14'>
                         <div className='space-y-3'>
                             <h1 className='font-semibold text-richblack-100'>Plans</h1>
                             <div className='flex flex-col gap-2 text-sm text-richblack-400'>
@@ -184,15 +183,15 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
-
-
-                <div className='flex justify-between w-1/2 pl-10 border-l border-richblack-700'>
+                <div className='grid grid-cols-2 md:grid-cols-3 border-richblack-700 lg:border-l lg:pl-12'>
                     {
                         FooterLink2.map((val) => {
                             return (
-                                <div key={val.title} className='space-y-2 text-base font-semibold text-richblack-100'>
+                                <div key={val.title} className='mt-5 space-y-2 text-base font-semibold text-richblack-100'>
                                     <h1>{val.title}</h1>
                                     {
                                         val.links.map((element) => {
@@ -215,7 +214,9 @@ const Footer = () => {
 
 
             </div>
-            <div className='flex justify-between w-full py-10 mx-auto font-medium max-w-maxContent text-richblack-300'>
+
+
+            <div className='flex flex-col items-center justify-around gap-2 py-10 font-medium border-t lg:flex-row text-richblack-300 layout border-richblack-700'>
 
                 <div className='flex justify-between divide-x divide-richblack-700'>
                     <div className='pr-3'>
@@ -232,7 +233,6 @@ const Footer = () => {
                 <div>
                     Made with ❤️ Codehelp ©️ 2023 StudyNotion
                 </div>
-
 
             </div>
 

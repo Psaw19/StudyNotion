@@ -29,20 +29,25 @@ function ExploreMore() {
 
 
     return (
-        <div className='w-full px-[120px] pb-24 flex flex-col gap-9 -mb-72'>
+        <div className='flex flex-col w-full gap-12 pb-20 -mb-80'>
             <div>
 
-                <h1 className='w-full text-4xl font-semibold text-center text-richblack-5'>Unlock the <HighlightText text={"Power of Code"} /> </h1>
+                <h1 className='w-full text-4xl font-semibold text-center text-richblack-5'>
+                    Unlock the <HighlightText text={"Power of Code"} />
+                </h1>
                 <p className='w-full mt-2 text-base font-medium text-center text-richblack-300'>Learn to Build Anything You Can Imagine</p>
 
             </div>
-            <div className='flex gap-3 p-1 mx-auto rounded-full bg-richblack-800 w-fit text-richblack-500'>
+
+            {/* flex gap-3 p-1 mx-auto rounded-full bg-richblack-800 w-fit text-richblack-500 */}
+
+            <div className='grid grid-cols-5 gap-1 p-1 mx-auto rounded-full bg-richblack-800 text-richblack-500'>
                 {
                     tabnames.map((element, index) => {
                         return (
                             <div
                                 onClick={() => { setMyCard(element) }}
-                                className={`px-6 py-2 cursor-pointer hover:text-richblack-5 hover:bg-richblack-900 transition-all duration-200 rounded-full 
+                                className={`md:px-5 py-2 text-center flex items-center justify-center cursor-pointer hover:text-richblack-5 hover:bg-richblack-900 transition-all duration-200 rounded-full 
                                 ${currentTab === element ? 'bg-richblack-900 text-richblack-5' : ''}`}
                                 key={index}>
                                 {element}
@@ -51,7 +56,7 @@ function ExploreMore() {
                     })
                 }
             </div>
-            <div className='flex gap-9 py-8 px-[52px] '>
+            <div className='flex flex-col items-center lg:flex-row gap-9 lg:justify-around xl:justify-center xl:gap-10'>
                 {
                     courses.map((course, index) => {
                         return (
@@ -73,10 +78,6 @@ function ExploreMore() {
                         Explore Full Catalog
                         <FaArrowRight className='ml-2' />
                     </CTAbutton>
-
-                    {/* <CTAbutton active={false} linkTo={"/login"}>
-                        Learn More
-                    </CTAbutton> */}
 
                     <Link to='/signup' className={`w-fit px-6 py-3 text-[13px] flex items-center rounded-md hover:scale-95 transition-all duration-300 font-semibold bg-richblack-900`}>
                         Learn More

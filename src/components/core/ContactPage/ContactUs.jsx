@@ -3,10 +3,10 @@ import ContactForm from './ContactForm'
 
 const ContactUs = () => {
     return (
-        <div className='flex flex-col gap-6 border rounded-md p-14 border-richblack-700'>
+        <div className='flex flex-col gap-6 border rounded-md p-14 border-richblack-700 layout bg-blue-25'>
 
             <div className='flex flex-col flex-wrap gap-2'>
-                <h1 className='text-4xl font-semibold text-richblack-5'>
+                <h1 className='heading text-richblack-5'>
                     Got a Idea? We’ve got the skills. Let’s team up
                 </h1>
                 <p className='text-base text-richblack-300'>

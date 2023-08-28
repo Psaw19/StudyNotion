@@ -3,6 +3,7 @@ const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imageUploader")
 
 exports.updateProfile = async (req, res) => {
+    console.log('---------------INSIDE UPDATE PROFILE CONTROLLER-------------------')
     try {
         //fetch data
         const { dateOfBirth = "", gender, about = "", contactNumber } = req.body
@@ -39,7 +40,9 @@ exports.updateProfile = async (req, res) => {
         })
     }
 }
+
 exports.deleteAccount = async (req, res) => {
+    console.log('---------------INSIDE DELETE ACCOUNT CONTROLLER-------------------')
     try {
 
         const userId = req.user.id
@@ -74,6 +77,7 @@ exports.deleteAccount = async (req, res) => {
 }
 
 exports.getAllUserDetails = async (req, res) => {
+    console.log('---------------INSIDE GET ALL USER DETAILS CONTROLLER-------------------')
     try {
 
         const userId = req.user.id
@@ -96,6 +100,7 @@ exports.getAllUserDetails = async (req, res) => {
 }
 
 exports.updateDisplayPicture = async (req, res) => {
+    console.log('---------------INSIDE UPDATE DISPLAY PICTURE CONTROLLER-------------------')
     try {
         const displayPicture = req.files.displayPicture
         const userId = req.user.id
@@ -125,6 +130,7 @@ exports.updateDisplayPicture = async (req, res) => {
 };
 
 exports.getEnrolledCourses = async (req, res) => {
+    console.log('---------------INSIDE GET ENROLLED COURSES CONTROLLER-------------------')
     try {
         const userId = req.user.id
         const userDetails = await User.findOne({

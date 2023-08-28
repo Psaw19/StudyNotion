@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #afb2bf;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000814;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #afb2bf;
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+*:active::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar-thumb,
+*:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+.bg_homepage {
+  background: url("./Images/bghome.svg");
+}
+
+@layer components {
+  .highlight {
+    @apply text-transparent bg-clip-text;
+  }
+
+  .gradient2 {
+    @apply bg-gradient-to-br from-[#8A2BE2] via-[#FFA500] to-[#F8F8FF];
+  }
+
+  .gradient4 {
+    @apply bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045];
+  }
+
+  .gradient5 {
+    @apply bg-gradient-to-br from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB];
+  }
+
+  .gradient6 {
+    @apply bg-gradient-to-br from-[#FF512F] to-[#F09819];
+  }
+
+  .gradient8 {
+    @apply bg-gradient-to-br from-[#E65C00] to-[#F9D423];
+  }
+
+  .gradient9 {
+    @apply bg-gradient-to-br from-[#EC008C] to-[#FC6767];
+  }
+
+  .gradient10 {
+    @apply bg-gradient-to-tr from-[#5433FF] via-[#20BDFF] to-[#38f188];
+  }
+
+  .layout {
+    @apply w-11/12 py-10 mx-auto max-w-maxContent md:py-12;
+  }
+
+  .heading {
+    @apply text-3xl font-semibold md:text-4xl;
+  }
+}
+
+/* .no-arrow {
+  -moz-appearance: textfield;
+} */
+.no-arrow::-webkit-inner-spin-button {
+  display: none;
+}
+.no-arrow::-webkit-outer-spin-button,
+.no-arrow::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.PhoneInputInput {
+  background-color: aqua;
+}

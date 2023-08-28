@@ -6,9 +6,10 @@ import LoginForm from './LoginForm'
 const Template = ({ heading, description1, description2, image, formType }) => {
     return (
         <div className='w-full bg-richblack-900 grow'>
-            <div className='max-w-[1440px] px-[120px] mx-auto h-full flex justify-between'>
-                <div className='w-[550px] p-8 flex flex-col gap-3'>
-                    <h1 className='text-3xl font-semibold tracking-wide text-richblack-5'>
+            <div className='flex flex-col-reverse items-center h-full layout lg:flex-row'>
+
+                <div className='max-w-[500px] w-full flex flex-col gap-2 mx-auto justify-center'>
+                    <h1 className='text-3xl heading text-richblack-5'>
                         {heading}
                     </h1>
                     <div>
@@ -27,10 +28,22 @@ const Template = ({ heading, description1, description2, image, formType }) => {
 
                 </div>
 
-                <div className='flex items-center justify-end grow'>
-                    <div className='relative'>
-                        <img src={image} alt="banner" className='absolute -translate-x-5 -translate-y-5' loading='lazy' />
-                        <img src={bgImage} alt="bgImage" loading='lazy' />
+                <div className='flex items-center justify-center p-5 md:p-8'>
+                    <div className='relative w-full max-w-[500px]'>
+                        <img
+                            src={image}
+                            alt="banner"
+                            loading='lazy'
+                            className='absolute z-10 w-auto -translate-x-2 -translate-y-2 md:-translate-x-3 md:-translate-y-3'
+                        />
+
+                        <img
+                            src={bgImage}
+                            alt="bgImage"
+                            loading='lazy'
+                            className='w-auto translate-x-2 translate-y-2 md:translate-x-3 md:translate-y-3'
+
+                        />
                     </div>
                 </div>
 

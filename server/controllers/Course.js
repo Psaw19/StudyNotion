@@ -4,8 +4,8 @@ const User = require("../models/User")
 
 const { uploadImageToCloudinary } = require('../utils/imageUploader')
 
-
 exports.createCourse = async (req, res) => {
+    console.log('---------------INSIDE CREATE COURSE CONTROLLER-------------------')
     try {
 
         //get user id
@@ -120,6 +120,7 @@ exports.createCourse = async (req, res) => {
 }
 
 exports.getAllCourses = async (req, res) => {
+    console.log('---------------INSIDE GET ALL COURSES CONTROLLER-------------------')
     try {
 
         const allCourses = await Course.find({},
@@ -153,6 +154,7 @@ exports.getAllCourses = async (req, res) => {
 
 //getCourseDetails
 exports.getCourseDetails = async (req, res) => {
+    console.log('---------------INSIDE GET COURSE DETAILS CONTROLLER-------------------')
     try {
 
         //get id

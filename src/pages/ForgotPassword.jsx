@@ -26,11 +26,11 @@ const ForgotPassword = () => {
 
     return (
         <div className='text-richblack-5 grow'>
-            <div className='max-w-[1440px] mx-auto px-[120px] py-24 flex justify-center'>
+            <div className='flex justify-center layout'>
 
-                <div className='flex flex-col w-1/3 gap-5'>
+                <div className='flex flex-col gap-5 w-full max-w-[500px]'>
 
-                    <h1 className='text-4xl font-semibold'>
+                    <h1 className='heading'>
                         {
                             emailSent ? 'Check email' : 'Reset your password'
                         }

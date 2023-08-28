@@ -5,7 +5,9 @@ const OpenRoute = ({ children }) => {
     const { token } = useSelector((state) => state.auth)
 
     if (token === null) {
-        console.log('This is an OpenRoute')
+        console.log('*************************************')
+        console.log('*         INSIDE OPEN ROUTE         *')
+        console.log('*************************************')
         return children
     } else {
         return <Navigate to={'/dashboard/my-profile'} />

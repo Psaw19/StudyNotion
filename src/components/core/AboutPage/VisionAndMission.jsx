@@ -3,8 +3,8 @@ import React from 'react'
 const VisionAndMission = () => {
     return (
         <div>
-            <div className='max-w-[1440px] mx-auto flex gap-32 px-[120px] py-16'>
-                <div className='flex flex-col gap-6 pl-8'>
+            <div className='flex flex-col gap-10 lg:flex-row lg:gap-16 layout'>
+                <div className='flex flex-col gap-6'>
                     <h1 className='text-4xl font-semibold highlight gradient8'>
                         Our Vision
                     </h1>
@@ -13,7 +13,7 @@ const VisionAndMission = () => {
                     </p>
                 </div>
 
-                <div className='flex flex-col gap-6 pr-8 '>
+                <div className='flex flex-col gap-6'>
                     <h1 className='text-4xl font-semibold highlight gradient5'>
                         Our Mission
                     </h1>

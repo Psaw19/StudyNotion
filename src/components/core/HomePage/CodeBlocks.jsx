@@ -6,16 +6,20 @@ import { TypeAnimation } from 'react-type-animation'
 function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, bg_gradient_color, textcolor }) {
 
     return (
-        <div className={`flex w-full h-full gap-[98px] ${position} justify-center px-[120px] py-[90px] items-center`}>
+        <div className={`flex w-full ${position} justify-center items-center gap-10 py-10`}>
 
             {/* Section 1 */}
-            <div className='flex flex-col w-[486px] gap-3'>
-                {heading}
-                <p className='text-base text-richblack-300'>
-                    {subheading}
-                </p>
+            <div className='flex flex-col lg:w-[486px] gap-3'>
+                <div className='flex flex-col gap-3 sm:px-10'>
 
-                <div className='flex gap-6 mt-[52px]'>
+                    <div >
+                        {heading}
+                    </div>
+                    <p className='text-base text-richblack-300 '>
+                        {subheading}
+                    </p>
+                </div>
+                <div className='flex gap-6 mt-5 lg:mt-12 sm:px-10'>
                     <CTAbutton active={ctabtn1.active} linkTo={ctabtn1.linkTo} >
                         {ctabtn1.text}
                         <FaArrowRight className='ml-2' />
@@ -25,11 +29,12 @@ function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, bg_gradie
                         {ctabtn2.text}
                     </CTAbutton>
                 </div>
+
             </div>
 
             {/* Section 2 */}
 
-            <div className='relative w-[45%] p-8 font-mono text-sm'>
+            <div className='relative w-full max-w-[450px] lg:w-[45%] lg:p-8 font-mono text-sm'>
 
                 <div
                     className={`
@@ -57,7 +62,7 @@ function CodeBlocks({ position, heading, subheading, ctabtn1, ctabtn2, bg_gradie
                     </div>
                     <div className='pl-2 font-bold'>
                         <TypeAnimation
-                            sequence={['<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n<link rel="stylesheet" href="styles.css">\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav><a href="one/">One</a>\n<a href="two/">Two</a>\n<ahref="three/">Three</a>\n</nav>', 2000, ""]}
+                            sequence={['<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n<link rel="stylesheet"\nhref="styles.css"></head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav><a href="one/">One</a>\n<a href="two/">Two</a>\n<ahref="three/">Three</a>\n</nav>', 2000, ""]}
                             repeat={Infinity}
                             omitDeletionAnimation={true}
                             style={{ display: "block", whiteSpace: "pre-line" }}

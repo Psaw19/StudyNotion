@@ -16,7 +16,6 @@ const About = () => {
             <HeroSection />
 
             {/* Section 2 */}
-            <div className='h-20' />
             <Quote />
 
             {/* Section 3 */}

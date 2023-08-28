@@ -9,7 +9,7 @@ const Contact = () => {
     return (
         <div className='bg-richblack-900'>
 
-            <div className='flex gap-14 mx-auto px-[120px] py-16 max-w-[1440px]'>
+            <div className='flex flex-col gap-14 layout'>
                 <ContactDetails />
                 <ContactUs />
             </div>

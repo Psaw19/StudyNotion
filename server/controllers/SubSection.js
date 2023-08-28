@@ -5,7 +5,6 @@ const { uploadImageToCloudinary } = require("../utils/imageUploader")
 
 exports.createSubSection = async (req, res) => {
     try {
-
         //fetch data
         const { sectionId, title, timeDuration, description } = req.body;
 
@@ -17,7 +16,6 @@ exports.createSubSection = async (req, res) => {
             return res.status(404).json({
                 success: false,
                 message: "insufficient data",
-
             })
         }
 

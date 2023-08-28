@@ -3,7 +3,6 @@ const Course = require("../models/Course")
 
 exports.createSection = async (req, res) => {
     try {
-
         //fetch data
         const { sectionName, courseId } = req.body;
         //validate data

@@ -7,9 +7,9 @@ import banner2 from '../../../assets/Images/aboutus2.webp'
 const HeroSection = () => {
     return (
         <div className='bg-richblack-900'>
-            <div className='relative pt-16 pb-72 px-[120px] space-y-4 max-w-[1440px] flex flex-col mx-auto '>
+            <div className='relative flex flex-col items-center space-y-4 lg:pb-56 layout'>
 
-                <div className='w-8/12 mx-auto space-y-4'>
+                <div className='mx-auto space-y-4'>
                     <h1 className='text-4xl font-semibold text-center'>
                         Driving Innovation in Online Education for a
                         <HighlightText text={'Brighter Future'} />
@@ -18,10 +18,10 @@ const HeroSection = () => {
                         Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.
                     </p>
                 </div>
-                <div className='absolute flex justify-center gap-4 mx-auto -bottom-20'>
-                    <img src={banner1} alt="banner1" />
-                    <img src={banner2} alt="banner2" />
-                    <img src={banner3} alt="banner3" />
+                <div className='flex flex-col justify-center gap-4 p-2 mx-auto lg:absolute lg:-bottom-20 lg:flex-row'>
+                    <img src={banner1} alt="banner1" className='lg:h-64' />
+                    <img src={banner2} alt="banner2" className='lg:h-64' />
+                    <img src={banner3} alt="banner3" className='lg:h-64' />
                 </div>
             </div>
         </div>

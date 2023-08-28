@@ -3,8 +3,8 @@ require("dotenv").config();
 
 //auth
 exports.auth = (req, res, next) => {
+    console.log('-----------------INSIDE AUTH MIDDLEWARE-----------------')
     try {
-        console.log('INSIDE AUTH BACKEND')
         //extract token
         const token = req.cookies.token
             || req.body.token
@@ -43,6 +43,7 @@ exports.auth = (req, res, next) => {
 
 //isStudent
 exports.isStudent = async (req, res, next) => {
+    console.log('-----------------INSIDE IS STUDENT MIDDLEWARE-----------------')
     try {
         if (req.user.accountType !== "Student") {
             return res.status(401).json({
@@ -62,8 +63,8 @@ exports.isStudent = async (req, res, next) => {
 
 //isInstructor
 exports.isInstructor = async (req, res, next) => {
+    console.log('-----------------INSIDE IS INSTRUCTOR MIDDLEWARE-----------------')
     try {
-
         if (req.user.accountType !== "Instructor") {
             return res.status(401).json({
                 success: false,
@@ -83,6 +84,7 @@ exports.isInstructor = async (req, res, next) => {
 
 //isAdmin
 exports.isAdmin = async (req, res, next) => {
+    console.log('-----------------INSIDE IS ADMIN MIDDLEWARE-----------------')
     try {
 
         if (req.user.accountType !== "Admin") {

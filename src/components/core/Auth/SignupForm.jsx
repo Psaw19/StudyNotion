@@ -70,6 +70,8 @@ const SignupForm = () => {
                         {ACCOUNT_TYPE.INSTRUCTOR}
                     </div>
                 </div>
+
+
                 <div className='flex w-full gap-4'>
                     <label className='grow'>
                         <p className='mb-1.5 text-sm font-normal'>
@@ -109,8 +111,8 @@ const SignupForm = () => {
                         className='p-3 rounded-md shadow-[0_1px_0_0] shadow-richblack-600 placeholder:text-richblack-200 placeholder:text-base placeholder:font-medium focus:outline-none bg-richblack-800 w-full' />
                 </label>
 
-                <div className='flex gap-4'>
-                    <label>
+                <div className='flex flex-col gap-4 sm:flex-row'>
+                    <label className='grow'>
                         <p className='mb-1.5 text-sm font-normal'>
                             Password<sup className='text-pink-200'>*</sup>
                         </p>
@@ -136,7 +138,7 @@ const SignupForm = () => {
                             }
                         </div>
                     </label>
-                    <label>
+                    <label className='grow'>
                         <p className='mb-1.5 text-sm font-normal'>
                             Confirm Password<sup className='text-pink-200'>*</sup>
                         </p>
