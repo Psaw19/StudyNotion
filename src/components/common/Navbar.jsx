@@ -29,11 +29,12 @@ const Navbar = () => {
 
     const fetchSubLinks = async () => {
         try {
-            // console.log("fetching sublinks.....");
+            console.log("fetching sublinks.....");
+            console.log(categories.CATEGORIES_API);
             const result = await apiconnector('GET', categories.CATEGORIES_API);
             const { allcategories } = result.data;
             setSubLinks(allcategories);
-            // console.log('Printing sub links result --> ', allcategories);
+            console.log('Printing sub links result --> ', allcategories);
 
         } catch (error) {
             console.log('error while getting Catalog list')

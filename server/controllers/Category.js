@@ -39,7 +39,7 @@ exports.showAllCategories = async (req, res) => {
     try {
 
         const allcategories = await Category.find({}, { name: true, description: true });
-
+        console.log('fetching category')
         res.status(200).json({
             success: true,
             message: "All categories returned successfully",
