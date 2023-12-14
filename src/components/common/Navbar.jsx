@@ -224,7 +224,10 @@ const Navbar = () => {
           {token !== null && (
             <button
               className="flex items-center w-full gap-1 px-4 py-2 transition-all duration-200 hover:text-richblack-25 hover:scale-105"
-              onClick={() => dispatch(logout(navigate))}
+              onClick={() => {
+                setToggle((toggle) => !toggle);
+                dispatch(logout(navigate));
+              }}
             >
               <VscSignOut />
               Logout
