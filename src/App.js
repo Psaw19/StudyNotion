@@ -1,24 +1,27 @@
 import React from "react";
 import "./assets/global.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Navbar from "./components/common/Navbar";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import VerifyEmail from "./pages/VerifyEmail";
-import PrivateRoute from "./components/core/Auth/PrivateRoute";
-import OpenRoute from "./components/core/Auth/OpenRoute";
-import Error from "./pages/Error";
-import MyProfile from "./components/core/Dashboard/MyProfile";
-import Dashboard from "./pages/Dashboard";
-import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
-import Settings from "./components/core/Dashboard/Settings/Settings";
-import Cart from "./components/core/Dashboard/Cart";
-import ForgotPassword from "./pages/ForgotPassword";
-import UpdatePassword from "./pages/UpdatePassword";
-import AddCourse from "./components/core/Dashboard/AddCourse";
+import { Navbar } from "./components/common";
+import { PrivateRoute, OpenRoute } from "./components/core/Auth";
+import {
+  Home,
+  About,
+  Contact,
+  Login,
+  Signup,
+  VerifyEmail,
+  Error,
+  Dashboard,
+  ForgotPassword,
+  UpdatePassword,
+} from "./pages";
+import {
+  MyProfile,
+  EnrolledCourses,
+  Settings,
+  Cart,
+  AddCourse,
+} from "./components/core/Dashboard";
 
 const App = () => {
   return (
